@@ -1,0 +1,39 @@
+{
+  "name": "spring-data-rest-and-reactjs",
+  "version": "0.1.0",
+  "description": "Demo of ReactJS + Spring Data REST",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:spring-guides/tut-react-and-spring-data-rest.git"
+  },
+  "author": "Greg L. Turnquist",
+  "license": "",
+  "scripts": {
+    "build:dev": "webpack",
+    "watch": "webpack --watch -d",
+    "devserver": "webpack-dev-server"
+  },
+  "dependencies": {
+    "moment": "^2.22.2",
+    "react": "^16.5.2",
+    "react-datepicker": "^1.6.0",
+    "react-dom": "^16.5.2",
+    "rest": "^2.0.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.20.2",
+    "webpack-cli": "3.1.2",
+    "webpack-dev-server": "^3.1.9",
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-decorators": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.2"
+  },
+  "-vs-binding": {
+    "AfterBuild": [
+      "build:dev"
+    ]
+  }
+}
