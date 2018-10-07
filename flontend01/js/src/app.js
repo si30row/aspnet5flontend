@@ -1,17 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DatePicker from 'react-datepicker';
+//import DatePicker from 'react-datepicker';
+import SDataPicker from './common/datePicker';
+import moment from 'moment';
 import t from "./test";
+import EInput from './common/eInput';
+
+//import 'react-datepicker/dist/react-datepicker';
+
 //import Hoge from './hoge'
 
 class Hoge extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {count: 0, startDate: '2018/10/20'};
+        //moment.lang('ja');
+        this.state = { count: 0, startDate: moment(), ei: 'aaaa', a: false};
     }
 
     componentDidMount() {
-        alert(`componentDidMount ${this.props.id}`);
+        console.log(`componentDidMount ${this.props.id}`);
     }
 
     render() {
@@ -22,14 +29,15 @@ class Hoge extends React.Component {
 
         return (
             <React.Fragment>
-                <div style={{ color: "blue" }}>
+                <div>
                     test prop {this.props.id}
-                    <input type="text" value={this.state.count} onChange={(e) => this.setState({ count: e.target.value })} />
+                    <input type="text" value={this.state.count} onFocus={(e) => this.setState({ count: 3 })} onChange={(e) => this.setState({ count: e.target.value })} className="aaaa" />
+                    <input type="text" value={this.state.count} onFocus={(e) => this.setState({ count: 4 })} onChange={(e) => this.setState({ count: e.target.value })} className="aaaa" />
                     {a}
-                    <button onClick={(e) => t(this.props.id)}>call</button>
-                    <DatePicker placeholderText="This highlights a week ago and a week from today" />
-
-
+                    <button onClick={(e) => t(this.props.id)} id="bbbb">call</button>
+                    <button onClick={(e) => document.querySelectorAll('#cccc')[0].focus()}>call</button>
+                    <SDataPicker placeholderText="YYYY/MM/DD" selected={this.state.startDate} onChange={(date) => this.setState({ startDate: date })} id="cccc" />
+                    {this.state.ei}<EInput value={this.state.ei} onChange={(e) => this.setState({ ei: e.target.value })} a={this.state.a} /><button onClick={(e) => this.setState({a: (this.state.a ? false : true)})}>表示</button>
                 </div>
             </React.Fragment>
         );

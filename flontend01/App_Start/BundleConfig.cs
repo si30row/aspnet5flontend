@@ -24,7 +24,9 @@ namespace flontend01
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/react-datepicker.min.css"
+                      ));
         }
     }
 }
